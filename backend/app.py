@@ -16,13 +16,19 @@ def create_app():
     # Configure CORS to work seamlessly with frontend frameworks
     # Supports credentials properly by parsing environment configurations
     cors_origins = app.config['CORS_ORIGIN']
-    if cors_origins == '*':
-        origins_list = ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:5000", "http://127.0.0.1:5000"]
-    else:
-        origins_list = [o.strip() for o in cors_origins.split(',')]
-        # Always allow localhost for development convenience
-        origins_list.extend(["http://localhost:5173", "http://127.0.0.1:5173"])
-        
+    origins_list = [
+        "https://detection-of-open-cast-mining-visua.vercel.app",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:5000",
+        "http://127.0.0.1:5000"
+    ]
+    if cors_origins and cors_origins != '*':
+        for o in cors_origins.split(','):
+            cleaned = o.strip()
+            if cleaned and cleaned not in origins_list:
+                origins_list.append(cleaned)
+                
     CORS(app, resources={r"/*": {"origins": origins_list}}, supports_credentials=True)
 
     # Initialize SQLAlchemy connection
