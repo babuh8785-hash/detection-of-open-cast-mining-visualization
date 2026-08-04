@@ -1,0 +1,44 @@
+Detection of Open-Cast Mining Visualization
+Problem Statement
+
+Open-cast mining activities cause significant changes to land surfaces, vegetation cover, and the surrounding environment. Traditional methods of monitoring mining areas are time-consuming, expensive, and often rely on manual inspections. There is a need for an automated system that can accurately detect and visualize open-cast mining regions from satellite or aerial imagery. Such a system would help authorities, environmental agencies, and researchers monitor mining activities, track land-use changes, and assess environmental impacts efficiently.
+
+Project Objectives
+To collect and preprocess satellite images for mining area analysis.
+To identify and extract relevant features associated with open-cast mining regions.
+To develop a detection model using image processing and machine learning/deep learning techniques.
+To classify mining and non-mining areas accurately.
+To visualize detected open-cast mining regions on satellite images.
+To monitor land-cover changes caused by mining activities over time.
+To improve detection accuracy and reduce manual effort in mining area monitoring.
+To generate useful outputs for environmental assessment and decision-making.
+Module List
+Module 1: Data Collection
+Gather satellite or aerial images from public datasets.
+Organize image datasets for training and testing.
+Module 2: Image Preprocessing
+Resize images.
+Remove noise and enhance image quality.
+Normalize image data for analysis.
+Module 3: Feature Extraction
+Extract texture, color, and shape features.
+Identify characteristics of open-cast mining areas.
+Module 4: Mining Area Detection
+Apply machine learning or deep learning algorithms.
+Detect mining regions from satellite images.
+Module 5: Classification
+Classify images into mining and non-mining categories.
+Evaluate classification performance.
+Module 6: Visualization
+Highlight detected mining regions.
+Display results using bounding boxes, masks, or heat maps.
+Module 7: Change Detection Analysis
+Compare historical and current images.
+Identify expansion or reduction of mining areas.
+Module 8: Result Generation and Reporting
+Generate detection reports.
+Display accuracy metrics and visual outputs.
+Store and export analysis results.
+Expected Outcome
+
+The proposed system will automatically detect and visualize open-cast mining areas from satellite imagery, providing accurate monitoring of mining activities and supporting environmental management through efficient geospatial analysis.
