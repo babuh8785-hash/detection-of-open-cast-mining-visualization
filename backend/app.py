@@ -98,6 +98,20 @@ def create_app():
 
 app = create_app()
 
+@app.route("/")
+def home():
+    return {
+        "success": True,
+        "message": "MineDetect Backend API is Running 🚀"
+    }, 200
+
+@app.route("/health")
+def health():
+    return {
+        "success": True,
+        "status": "healthy"
+    }, 200
+
 if __name__ == '__main__':
     # Determine execution port
     port = int(os.environ.get('PORT', 5000))
