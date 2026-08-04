@@ -2,10 +2,10 @@ import os
 import uuid
 from flask import Blueprint, request, jsonify, current_app, send_from_directory
 from werkzeug.utils import secure_filename
-from backend.models.models import db, Image, Prediction
-from backend.middleware.auth_middleware import token_required
-from backend.utils.image_processing import validate_image, preprocess_image
-from backend.services.predict_service import predict_mining, ModelUnavailableError
+from models.models import db, Image, Prediction
+from middleware.auth_middleware import token_required
+from utils.image_processing import validate_image, preprocess_image
+from services.predict_service import predict_mining, ModelUnavailableError
 
 ml_predict_bp = Blueprint('ml_predict', __name__)
 

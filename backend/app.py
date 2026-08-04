@@ -1,21 +1,12 @@
 import os
-import sys
-
-# Support running inside 'backend' folder directly (e.g. Railway root folder deployment)
-# by adding the parent directory to sys.path so 'backend' can be resolved as a package
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
-if parent_dir not in sys.path:
-    sys.path.insert(0, parent_dir)
-
 from flask import Flask, jsonify
 from flask_cors import CORS
-from backend.config.config import Config
-from backend.models.models import db, User
-from backend.routes.auth import auth_bp
-from backend.routes.user import user_bp
-from backend.routes.ml_predict import ml_predict_bp
-from backend.routes.admin import admin_bp
+from config.config import Config
+from models.models import db, User
+from routes.auth import auth_bp
+from routes.user import user_bp
+from routes.ml_predict import ml_predict_bp
+from routes.admin import admin_bp
 
 def create_app():
     """Application factory method to create and configure the Flask server."""
@@ -95,7 +86,7 @@ def create_app():
 
         # 3. Check for ML model availability to cache on startup
         try:
-            from backend.services.predict_service import load_ml_model
+            from services.predict_service import load_ml_model
             # Lazily load or compile dummy model so it's ready in memory
             load_ml_model()
             print("TensorFlow model verified and loaded into cache successfully.")

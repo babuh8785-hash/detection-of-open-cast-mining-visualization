@@ -1,7 +1,7 @@
 import re
 from flask import Blueprint, request, jsonify
-from backend.models.models import db, User
-from backend.middleware.auth_middleware import token_required
+from models.models import db, User
+from middleware.auth_middleware import token_required
 
 user_bp = Blueprint('user', __name__)
 

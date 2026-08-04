@@ -1,7 +1,7 @@
 import jwt
 from flask import request, jsonify, current_app
 from functools import wraps
-from backend.models.models import User
+from models.models import User
 
 def token_required(f):
     """Decorator to protect routes with JWT authentication.

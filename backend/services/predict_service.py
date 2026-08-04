@@ -21,7 +21,7 @@ def load_ml_model():
     # 1. If model file does not exist, trigger dummy training automatically to initialize
     if not os.path.exists(model_path):
         try:
-            from backend.ml.train_dummy_model import train_and_save_dummy_model
+            from ml.train_dummy_model import train_and_save_dummy_model
             train_and_save_dummy_model(model_path)
         except Exception as e:
             raise ModelUnavailableError(

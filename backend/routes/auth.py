@@ -2,7 +2,7 @@ import jwt
 import re
 from datetime import datetime
 from flask import Blueprint, request, jsonify, current_app
-from backend.models.models import db, User
+from models.models import db, User
 
 auth_bp = Blueprint('auth', __name__)
 
