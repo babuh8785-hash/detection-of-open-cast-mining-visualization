@@ -13,9 +13,17 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    # Configure CORS to work seamlessly with frontend frameworks (Vercel React apps)
-    # Allows authorization headers and cross-origin resource sharing
-    CORS(app, resources={r"/*": {"origins": app.config['CORS_ORIGIN']}}, supports_credentials=True)
+    # Configure CORS to work seamlessly with frontend frameworks
+    # Supports credentials properly by parsing environment configurations
+    cors_origins = app.config['CORS_ORIGIN']
+    if cors_origins == '*':
+        origins_list = ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:5000", "http://127.0.0.1:5000"]
+    else:
+        origins_list = [o.strip() for o in cors_origins.split(',')]
+        # Always allow localhost for development convenience
+        origins_list.extend(["http://localhost:5173", "http://127.0.0.1:5173"])
+        
+    CORS(app, resources={r"/*": {"origins": origins_list}}, supports_credentials=True)
 
     # Initialize SQLAlchemy connection
     db.init_app(app)
