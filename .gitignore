@@ -1,0 +1,41 @@
+# Python files to ignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Local databases and uploads
+*.db
+*.db-journal
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/ml/model.h5
+
+# Frontend compile results & configurations
+node_modules/
+dist/
+dist-ssr/
+.env
+.env.*
+*.local
+frontend/.env
+frontend/.env.*
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Operating System specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
